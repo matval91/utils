@@ -16,6 +16,7 @@ class fdist_superclass:
     def __init__(self, infile_n):
         """       
         """
+        print(infile_n)
         self.fname = infile_n
         self._read()
         

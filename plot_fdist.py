@@ -10,11 +10,14 @@ def plot_spaceE(tfbm, ax, color, ls, label):
     xlabel = r'$xi=(v_parallel/v)$'; ylabel = r'f'
     pu._plot_1d(x, y, xlabel, ylabel, ax=ax, color=color, ls=ls, label=label)
     
-def plot_spacep(tfbm, ax, color, ls):
+def plot_spacep(tfbm, ax, color, ls, label):
     """
     plot 1D (energy, int_space (int_pitch (fdist)))
     """  
-    x = tfbm.dict_dim['E']/1.602e-19*1e-3; y = tfbm.f_spacep_int
+    x = tfbm.dict_dim['E']
+    if x[0]<1:
+        x/=1.602e-19*1e-3
+    y = tfbm.f_spacep_int
     xlabel = r'$E [keV]$'; ylabel = r'f [1/keV]'
     pu._plot_1d(x, y, xlabel, ylabel, ax=ax, color=color, ls=ls, label=label)
 
