@@ -53,7 +53,7 @@ def common_style():
     plt.rc('ytick', labelsize=20)
     plt.rc('axes', labelsize=24, titlesize=24)
     plt.rc('figure', facecolor='white')
-    plt.rc('legend', fontsize=20)
+    plt.rc('legend', fontsize=15)
 
 def limit_labels(ax, xlabel='', ylabel='', title='', M=5):
     """plotting style
@@ -300,13 +300,14 @@ def _plot_2d(x, y, xlabel='', ylabel='', dist=0, title='', wallxy=0, wallrz=0, s
 
     #Checks for magnetic surfaces and plots them
     if surf!= 0:
+        llines = [0.2, 0.4, 0.6, 0.8, 1.0]
         try:
-            llines = [0.2, 0.4, 0.6, 0.8, 1.0]
             CS = ax.contour(surf[0], surf[1], surf[2], llines, colors='k')
             plt.clabel(CS, inline=1, fontsize=10) 
         except:
-            print("Impossible to plot RZ surfaces")
+            ax.plot(surf[0][np.linspace(0,20,5, dtype=int),:].T, surf[1][np.linspace(0,20,5, dtype=int),:].T,'k')
 
+            
     #Axes limits
     if ylim!=0:
         ax.set_ylim(ylim)

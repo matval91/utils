@@ -34,5 +34,5 @@ def plot_space_rz(tfbm, ax):
     """
     x,y = tfbm.dict_dim['R'], tfbm.dict_dim['z']
     title = tfbm.runid + ' ' + str(tfbm.time)
-    pu._plot_2d(x,y, tfbm.f_Ep_int.T, r'R [m]', r'z [m]', title, \
-                wall=[tfbm.R_w, tfbm.z_w], surf=[tfbm.rsurf, tfbm.zsurf])
+    pu._plot_2d(x,y, r'R [m]', r'z [m]', dist=tfbm.f_Ep_int.T, title=title, \
+                wallrz=[tfbm.R_w, tfbm.z_w], surf=[tfbm.rsurf, tfbm.zsurf])

@@ -88,7 +88,6 @@ class fdist_superclass:
         """
         self.f_spaceE_int = self._integrate_spacex('E', ax=0)    
 
-
     def _integrate_Ep(self):
         """
         Hidden method to integrate over (E,p)
@@ -135,3 +134,13 @@ class fdist_superclass:
         except:
             self._integrate_space()
         plot_fdist.plot_Epitch(self, ax)
+
+    def plot_space(self, ax=0):
+        """
+        Plot 2D (R,z, int_Epitch(fdist))
+        """
+        try:
+            self.f_Ep_int.mean()
+        except:
+            self._integrate_Ep()
+        plot_fdist.plot_space_rz(self, ax)
