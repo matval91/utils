@@ -262,8 +262,8 @@ def _plot_2d(x, y, xlabel='', ylabel='', dist=0, title='', wallxy=0, wallrz=0, s
     if len(fig.axes)==1:
         or_cb = 'vertical'
     #Doing the actual plot
-    if type(scatter)!=int:
-        ax.scatter(x, y, 40, c=scatter)
+    if scatter!=0:
+        ax.scatter(x, y, 10)
     elif np.mean(dist)!=0:
         x,y = np.meshgrid(x,y)
         CS  = ax.contourf(x,y, dist, 20,  cmap=my_cmap, pad=2)
@@ -299,7 +299,7 @@ def _plot_2d(x, y, xlabel='', ylabel='', dist=0, title='', wallxy=0, wallrz=0, s
         ax.add_artist(circle1)
 
     #Checks for magnetic surfaces and plots them
-    if surf!= 0:
+    if type(surf)!=int:
         llines = [0.2, 0.4, 0.6, 0.8, 1.0]
         try:
             CS = ax.contour(surf[0], surf[1], surf[2], llines, colors='k')
