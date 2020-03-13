@@ -38,7 +38,7 @@ def define_colors():
 colours, colours_old, styles, my_cmap, dpi= define_colors()
 
 
-def common_style():
+def common_style(labelsize=20):
     """plotting style
 
     Defining common, nice plotting styles using plt.rc
@@ -49,8 +49,8 @@ def common_style():
         None
     """      
 #    plt.rc('font', weight='bold')
-    plt.rc('xtick', labelsize=20)
-    plt.rc('ytick', labelsize=20)
+    plt.rc('xtick', labelsize=labelsize)
+    plt.rc('ytick', labelsize=labelsize)
     plt.rc('axes', labelsize=24, titlesize=24)
     plt.rc('figure', facecolor='white')
     plt.rc('legend', fontsize=15)
